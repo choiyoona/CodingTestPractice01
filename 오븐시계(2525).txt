@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+int main()
+{
+	int H, M, Oven;
+
+	scanf("%d %d", &H, &M);
+	scanf("%d", &Oven);
+
+	int num = (Oven + M) % 60;
+	int num2 = (Oven + M)/ 60;
+
+	if(H+num2>=24) {
+		H += num2 - 24;
+	}
+	else {
+		H += num2;
+	}
+	M = num;
+	printf("%d %d",H,M);
+	return 0;
+}
