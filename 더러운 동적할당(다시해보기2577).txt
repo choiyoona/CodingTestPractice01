@@ -1,0 +1,52 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    
+    int A, B, C;
+    int *D;
+    int Cnt = 0;
+    
+    scanf("%d %d %d", &A, &B, &C);
+
+    int Num = A * B * C;
+    int Copy = Num;
+    
+
+    while (Copy > 0) {
+
+        Copy /= 10;
+
+        Cnt++;
+    }
+    
+    D = (int*)malloc(sizeof(int)*Cnt);
+    Cnt = 0;
+    while (Num > 0) {
+
+        D[Cnt] = Num % 10;
+
+        Num /= 10;
+
+        Cnt++;
+    }
+
+    for (int i = 0; i < 10; i++) {
+       
+        int Sum = 0;
+        
+        for (int j = 0 ; j < Cnt; j++) {
+            
+            if (D[j] == i) {
+                Sum++;
+            }
+           
+        }
+        printf("%d\n", Sum);
+    }
+
+    free(D);
+
+}
